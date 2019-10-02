@@ -1,16 +1,13 @@
 package com.virtusa.controller;
-
 import com.virtusa.factory.UserLoginFactory;
 import com.virtusa.models.UserLoginModel;
 import com.virtusa.sesrvices.MainService;
 import com.virtusa.view.AdminView;
-
 public class MainController {
-	private MainService mainService;
-	
-	public MainController() {
+ private MainService mainService;
+ 	public MainController() {
 		//System.out.println(" 1 check mainController");
-		this.mainService = UserLoginFactory.createUserLoginService();
+ 	  this.mainService = UserLoginFactory.createUserLoginService();
 	}
 	public void Authenticate(String UserName, String Password) {
 		//System.out.println("step 8 check authentication  "+UserName + " "+ Password);
@@ -19,17 +16,17 @@ public class MainController {
 		userModel.setPassword(Password);
 		String userType=
 				mainService.userAuthenticationService(userModel);
-		
 		if(userType.contentEquals("ADMIN")) {
 			AdminView adminView=new AdminView();
 			adminView.adminMenuOptions();
 		}
-		if(userType.contentEquals("Mentor")){
-			
+		/*if(userType.contentEquals("Mentor")){
+			MentorView mentorView = new MentorView();
+			mentorView.mentorMenuOptions();
 		}
 		if(userType.contentEquals("LP")) {
-			
-		}
-		
+			LpView lpView=new LpView();
+			lpView.lpMenuOptions();
+		}*/
 	}
 }
