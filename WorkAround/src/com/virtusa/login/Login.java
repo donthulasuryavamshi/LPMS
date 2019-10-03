@@ -3,6 +3,8 @@ package com.virtusa.login;
 import java.util.Scanner;
 
 import com.workaround.auth.LoginAuth;
+//import com.workaround.auth.LoginAuth;
+import com.workaround.controller.MainController;
 
 public class Login {
 
@@ -17,6 +19,8 @@ public class Login {
 			System.out.println("enter password");
 			String pasword = sc.next();
 			if(username!=null && pasword!=null) {
+				//MainController mc = new MainController();//enhanced code
+				//mc.adminController(username,pasword);//enhanced code
 				LoginAuth la = new LoginAuth();
 				la.auth(username,pasword);
 			}else {

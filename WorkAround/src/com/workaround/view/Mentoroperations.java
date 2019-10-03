@@ -21,7 +21,13 @@ public class Mentoroperations {
 			PreparedStatement ps = con.prepareStatement("select * from mentors");
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
-				System.out.printf("|%5d"+rs.getInt(1)+"  |%7d"+rs.getString(2)+"  |%7d"+rs.getInt(3)+"  | "+rs.getString(4)+"  | "+rs.getString(5));//+"  |  "+rs.getString(6));
+				System.out.printf(
+						    String.format("  |%5d",rs.getInt(1))+
+						"|"+String.format("  |%5s",rs.getString(2))+
+						"|"+String.format("  |%5d",rs.getInt(3))+
+						"|"+String.format("  |%5s",rs.getString(4))+
+						"|"+String.format("  |%5s",rs.getString(5))
+						);//+"  |  "+rs.getString(6));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
