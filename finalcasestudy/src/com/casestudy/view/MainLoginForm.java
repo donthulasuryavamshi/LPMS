@@ -1,6 +1,7 @@
 package com.casestudy.view;
 import java.util.Scanner;
-import com.casestudy.controller.AdminController;
+
+import com.casestudy.controller.FrontController;
 public class MainLoginForm {
 	public static void main(String[] args) {
 		menu();
@@ -15,8 +16,8 @@ public class MainLoginForm {
 		int option = sc.nextInt();
 		switch(option) {
 		case 1:
-			AdminLoginView alv = new AdminLoginView();
-			alv.loginForm();
+			FrontController fc = new FrontController();
+			fc.loginview();
 			break;
 		case 2:
 			

@@ -9,9 +9,9 @@ public class AdminLoginView {
 		try(
 				Scanner sc = new Scanner(System.in);){
 			System.out.println("=======  Login Form===========");
-			System.out.println("  username ");
+			System.out.print("username: ");
 			String username = sc.next();
-			System.out.println("  password ");
+			System.out.print("\npassword ");
 			String password = sc.next();
 			System.out.println("==============================");
 			if(username!=null && password!=null) {
