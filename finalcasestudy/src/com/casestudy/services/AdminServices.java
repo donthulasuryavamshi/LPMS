@@ -1,6 +1,10 @@
 package com.casestudy.services;
 import com.casestudy.controller.LoginController;
 import com.casestudy.dao.AdminLoginAuthDao;
+import com.casestudy.dao.AdminProfileDao;
+import com.casestudy.dao.LPRegisterDao;
+import com.casestudy.dao.MentorViewDao;
+import com.casestudy.model.LPRegisterModel;
 import com.casestudy.view.LPEnrollmentView;
 public class AdminServices {
 	public AdminServices as;
@@ -39,5 +43,17 @@ public class AdminServices {
 	public void enrollService() {
 		LPEnrollmentView lpev = new LPEnrollmentView();
 		lpev.menu();
+	}
+	public void lpDetails(LPRegisterModel lprm) {
+		LPRegisterDao lprd = new  LPRegisterDao();
+		lprd.lpDetailsFilling(lprm);
+	}
+	public void profileViewServices() {
+		AdminProfileDao ap = new AdminProfileDao();
+		ap.viewMyProfile();
+	}
+	public void viewMentors() {
+		MentorViewDao mv = new MentorViewDao();
+		mv.viewMentorsListDao();
 	}
 }

@@ -26,11 +26,11 @@ public class LPEnrollmentView {
 	public void menu() {
 		try(Scanner sc = new Scanner(System.in);){
 			System.out.println("=============Registering onbording employee details===========");
-			System.out.print(" |  Employee ID:           |");
+			System.out.print("   |  Employee ID:              |");
 				String LP_ID = sc.next();
-			System.out.print("\n |  Employee First Name: |");
+			System.out.print("\n |  Employee First Name:      |");
 				String First_Name = sc.next();
-			System.out.print("\n |  Employee Last Name:  |");
+			System.out.print("\n |  Employee Last Name:       |");
 				String Last_Name = sc.next();
 			System.out.print("\n |  Date of Birth:(DD/MM/YYYY)|");
 				String DOB = sc.next();
@@ -43,24 +43,29 @@ public class LPEnrollmentView {
 				int month = Integer.parseInt(list.get(1));
 				int year = Integer.parseInt(list.get(2));
 				LocalDate dob = LocalDate.of(year, month-1, day);
-			System.out.print("\n |  Employee Contact:     |");
+			System.out.print("\n |  Employee Contact:         |");
 			int Phone_number = 0;
 				if(sc.hasNextInt())
 					Phone_number = sc.nextInt();
-			System.out.print("\n |  Employee Designation: |");
-				String Role = sc.next();
+			System.out.print("\n |  Employee Email:           |");
+			String Email = sc.next();
+			System.out.print("\n |  Employee Designation:     |");
+			String Role = sc.next();
+			//System.out.println(Role);
 			//System.out.print("\n | Batch_id:              |");
-				String Batch_id = null;
-				LPRegisterModel lprm = new LPRegisterModel();
+			String Batch_id = null;
+			LPRegisterModel lprm = new LPRegisterModel();
 				lprm.setLP_ID(LP_ID);
 				lprm.setFirst_Name(First_Name);
 				lprm.setLast_Name(Last_Name);
 				lprm.setDOB(dob);
 				lprm.setPhone_Number(Phone_number);
+				lprm.setEmail(Email);
 				lprm.setRole(Role);
 				lprm.setBatch_Id(Batch_id);
-				LPEnrollmentController lpec = new LPEnrollmentController();
-				lpec.registerLPDetails(lprm);
+				
+			LPEnrollmentController lpec = new LPEnrollmentController();
+			lpec.registerLPDetails(lprm);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

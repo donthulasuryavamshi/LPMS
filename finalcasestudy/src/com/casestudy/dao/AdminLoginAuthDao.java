@@ -20,7 +20,7 @@ public class AdminLoginAuthDao {
 			PreparedStatement ps = con.prepareStatement("select admin_id , admin_password from adminlogin where admin_id=? and admin_password=?");
 			ps.setString(1, username);
 			ps.setString(2, password);
-			System.out.println(username+password);
+			//System.out.println("connected"+username+password);
 			int result = ps.executeUpdate();
 			if(result==1) { 
 				//System.out.println("login succesfull");

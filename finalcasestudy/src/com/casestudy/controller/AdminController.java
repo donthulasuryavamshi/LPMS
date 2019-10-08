@@ -1,8 +1,9 @@
 package com.casestudy.controller;
 import com.casestudy.services.AdminServices;
 public class AdminController {
-	//public AdminServices as ;
+	AdminServices as = new AdminServices();
 	public void authValidation(String username, String password) {//  throws ClassNotFoundException, SQLException {
+		//System.out.println(username + "  "+password );//debugging
 		AdminServices as = new AdminServices();
 		as.adminAuth(username,password);
 		/*if(result==true) {
@@ -21,8 +22,13 @@ public class AdminController {
 		Logout lo = new Logout();
 		lo.logoutService();
 	}*/
-	public void enrollLP() {
-		AdminServices as = new AdminServices();
+	public void enrollLP() {		
 		as.enrollService();
+	}
+	public void profileView() {
+		as.profileViewServices();
+	}
+	public void viewMentor() {
+		as.viewMentors();
 	}
 }

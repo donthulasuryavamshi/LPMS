@@ -17,6 +17,7 @@ public class AdminLoginView {
 			if(username!=null && password!=null) {
 				AdminController ac = new AdminController();
 				ac.authValidation(username,password);
+				//System.out.println(username+ "  "+password);//debugging
 			}else {
 				System.out.println("  invalid username or password");
 				//System.out.println("==============================");
