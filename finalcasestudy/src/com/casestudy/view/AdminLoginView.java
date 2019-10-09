@@ -24,6 +24,7 @@ public class AdminLoginView {
 				AdminLoginView alv = new AdminLoginView();
 				alv.loginForm();
 			}
+			
 		}
 		
 	}
