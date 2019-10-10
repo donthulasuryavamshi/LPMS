@@ -18,7 +18,7 @@ public class MentorViewDao {
 			
 			PreparedStatement ps = con.prepareStatement("select * from mentors ");
 			ResultSet rs = ps.executeQuery();
-			System.out.println("in dao......");
+			//System.out.println("in dao......");
 			while(rs.next()) {
 				System.out.println(rs.getString(1)+"  |"+rs.getString(2)+"  |"+rs.getString(3)+"  |"+rs.getDate(4)+"  |"+rs.getInt(5)+"  |"+rs.getString(6)+"  |"+rs.getString(7)+"  |"+rs.getString(8));
 			}

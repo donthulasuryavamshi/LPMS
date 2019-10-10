@@ -1,9 +1,12 @@
 package com.casestudy.services;
+import java.sql.SQLException;
+
 import com.casestudy.controller.LoginController;
 import com.casestudy.dao.AdminLoginAuthDao;
 import com.casestudy.dao.AdminProfileDao;
 import com.casestudy.dao.LPRegisterDao;
 import com.casestudy.dao.MentorViewDao;
+import com.casestudy.dao.viewBatchesDao;
 import com.casestudy.model.LPRegisterModel;
 import com.casestudy.view.LPEnrollmentView;
 public class AdminServices {
@@ -55,5 +58,9 @@ public class AdminServices {
 	public void viewMentors() {
 		MentorViewDao mv = new MentorViewDao();
 		mv.viewMentorsListDao();
+	}
+	public void viewBatches() throws ClassNotFoundException, SQLException {
+		viewBatchesDao vbd = new viewBatchesDao();
+		vbd.viewBatchesDetails();
 	}
 }

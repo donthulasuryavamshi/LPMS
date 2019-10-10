@@ -1,4 +1,6 @@
 package com.casestudy.controller;
+import java.sql.SQLException;
+
 import com.casestudy.services.AdminServices;
 public class AdminController {
 	AdminServices as = new AdminServices();
@@ -30,5 +32,8 @@ public class AdminController {
 	}
 	public void viewMentor() {
 		as.viewMentors();
+	}
+	public void viewBatchDetails() throws ClassNotFoundException, SQLException {
+		as.viewBatches();
 	}
 }
