@@ -22,11 +22,11 @@ public class MainLoginView {
 			break;
 		case 2:
 			//LpLoginView lpLoginView = new LpLoginView();
-			LpLoginView.menu();
+			//LpLoginView.menu();
 			break;
 		case 3:
 			//MentorLoginView mentorLoginView = new MentorLoginView();
-			MentorLoginView.menu();
+			//MentorLoginView.menu();
 			break;
 		default:
 			System.out.println("select an valid option to proceed!!");

@@ -8,7 +8,8 @@ import java.sql.Statement;
 import com.virtusa.dbconnection.DataBaseConnector;
 
 public class viewBatchesDao {
-	public void viewBatchesDetails() throws ClassNotFoundException, SQLException {
+	public void viewBatchesDetails(){
+		try {
 		Connection con = DataBaseConnector.initilizConnection();
 		Statement stmt = con.createStatement();
 		ResultSet rs = stmt.executeQuery("select * from batch");
@@ -17,6 +18,10 @@ public class viewBatchesDao {
 			//System.out.println("executinggg");
 			System.out.println(rs.getString(1) +"  "+rs.getInt(2)+ "  "+rs.getString(3)+"  "+rs.getString(4)+"  "+rs.getString(5)+ "  "+rs.getString(6));
 		}
+	}catch (Exception e) {
+		// TODO: handle exception
+		e.printStackTrace();
 	}
 
+}
 }
