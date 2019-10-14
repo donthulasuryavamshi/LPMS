@@ -6,9 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.apache.log4j.Logger;
+
 import com.virtusa.dbconnection.DataBaseConnector;
 
 public class MentorViewDao implements MentorView  {
+	Logger log = Logger.getLogger(AdminLoginAuthDao.class.getName());
+	@Override
 	public void viewMentorsListDao() {
 		Connection con;
 		try {

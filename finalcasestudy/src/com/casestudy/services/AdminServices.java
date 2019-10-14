@@ -1,16 +1,22 @@
 package com.casestudy.services;
-import java.sql.SQLException;
-
-import com.casestudy.controller.LoginController;
 import com.casestudy.dao.AdminLoginAuthDao;
+import com.casestudy.dao.AdminProfile;
 import com.casestudy.dao.AdminProfileDao;
 import com.casestudy.dao.LPRegisterDao;
+import com.casestudy.dao.LpRegister;
+import com.casestudy.dao.MentorView;
 import com.casestudy.dao.MentorViewDao;
+import com.casestudy.dao.TrainingVenues;
+import com.casestudy.dao.UpdateProfile;
+import com.casestudy.dao.ViewBatch;
+import com.casestudy.dao.ViewLPs;
 import com.casestudy.dao.viewBatchesDao;
 import com.casestudy.model.LPRegisterModel;
 import com.casestudy.view.LPEnrollmentView;
+import com.virtusa.helper.FactoryMethod;
 public class AdminServices implements AdminServicesInterface {
-	public AdminServices as;
+	//public AdminServicesInterface as = new AdminServices();
+	@Override
 	public void  adminAuth(String username, String password) { 
 	//public void  adminAuth(String username, String password) { //  throws ClassNotFoundException, SQLException {
 		AdminLoginAuthDao alad = new AdminLoginAuthDao();
@@ -43,26 +49,45 @@ public class AdminServices implements AdminServicesInterface {
 		AdminLoginView alv = new AdminLoginView();
 		alv.loginForm();
 	}*/
+	@Override
 	public void enrollService() {
+		// TODO Auto-generated method stub
 		LPEnrollmentView lpev = new LPEnrollmentView();
 		lpev.menu();
 	}
+	private LpRegister lpRegister = FactoryMethod.lpRegisterFactory();
+	private AdminProfile adminProfile = FactoryMethod.adminProfileFactory();
+	private MentorView mentorView= FactoryMethod.mentorViewFactory();
+	private ViewBatch viewBatch = FactoryMethod.viewBatchFactory();
+	private UpdateProfile updateProfile = FactoryMethod.updateProfile();
+	private ViewLPs viewLPs = FactoryMethod.viewLPsList();
+	private TrainingVenues trainingVenues = FactoryMethod.viewTrainingVenues();
+	@Override
 	public void lpDetails(LPRegisterModel lprm) {
-		LPRegisterDao lprd = new  LPRegisterDao();
-		lprd.lpDetailsFilling(lprm);
+		// TODO Auto-generated method stub
+		//LPRegisterDao lprd = new  LPRegisterDao();
+		//public FactoryMethod factoryMethod = new FactoryMethod();
+		lpRegister.lpDetailsFilling(lprm);
+
 	}
+	@Override
 	public void profileViewServices() {
-		AdminProfileDao ap = new AdminProfileDao();
-		ap.viewMyProfile();
+		// TODO Auto-generated method stub
+		//AdminProfileDao ap = new AdminProfileDao();
+		adminProfile.viewMyProfile();
 	}
+	@Override
 	public void viewMentors() {
-		MentorViewDao mv = new MentorViewDao();
-		mv.viewMentorsListDao();
+		// TODO Auto-generated method stub
+		//MentorViewDao mv = new MentorViewDao();
+		mentorView.viewMentorsListDao();
 	}
+	@Override
 	public void viewBatches() {
+		// TODO Auto-generated method stub
 		try{
-			viewBatchesDao vbd = new viewBatchesDao();
-			vbd.viewBatchesDetails();
+			//viewBatchesDao vbd = new viewBatchesDao();
+			viewBatch.viewBatchesDetails();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -70,6 +95,18 @@ public class AdminServices implements AdminServicesInterface {
 	@Override
 	public void profileUpdate() {
 		// TODO Auto-generated method stub
+		updateProfile.updateProfile();
 		
+		
+	}
+	@Override
+	public void viewLPs() {
+		// TODO Auto-generated method stub
+		viewLPs.viewLPs();
+	}
+	@Override
+	public void trainingVenues() {
+		// TODO Auto-generated method stub
+		trainingVenues.viewTrainingVenues();
 	}
 }

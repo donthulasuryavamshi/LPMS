@@ -7,11 +7,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
+import org.apache.log4j.Logger;
+
 import com.casestudy.model.LPRegisterModel;
 import com.virtusa.dbconnection.DataBaseConnector;
 
 public class LPRegisterDao implements LpRegister {
-
+	public Logger log = Logger.getLogger(AdminLoginAuthDao.class.getName());
+	@Override
 	public void lpDetailsFilling(LPRegisterModel lprm) {
 		try {
 		Connection con = DataBaseConnector.initilizConnection();
@@ -31,6 +34,7 @@ public class LPRegisterDao implements LpRegister {
 		
 		int rs = ps.executeUpdate();
 		if(rs ==  1) {
+			log.info(lprm.getLP_ID()+" has been enrolled successfully");
 			System.out.println(" inserted successfully ");
 		}else {
 			System.out.println(" error in insert query ");

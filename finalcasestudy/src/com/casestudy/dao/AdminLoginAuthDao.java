@@ -3,12 +3,17 @@ package com.casestudy.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
+import org.apache.log4j.Logger;
+
 import com.casestudy.services.LoginService;
 import com.virtusa.dbconnection.DataBaseConnector;
 
 public class AdminLoginAuthDao implements AdminLoginAuth {
 	// public AdminServices as = new AdminServices();
+	@Override
 	public void adminLoginVerification(String username, String password) {
+		Logger log = Logger.getLogger(AdminLoginAuthDao.class.getName());
 		try {
 			Connection con = DataBaseConnector.initilizConnection();
 			PreparedStatement ps = con.prepareStatement(
@@ -18,6 +23,7 @@ public class AdminLoginAuthDao implements AdminLoginAuth {
 			// System.out.println("connected"+username+password);
 			ResultSet result = ps.executeQuery();
 			if (result.next()) {
+				log.info(username + " has logged on to the system");
 				// System.out.println("login succesfull");
 				LoginService as = new LoginService();
 				as.loginSuccessMessage();

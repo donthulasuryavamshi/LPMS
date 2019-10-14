@@ -3,7 +3,7 @@ import java.sql.SQLException;
 
 import com.casestudy.services.AdminServices;
 public class AdminController {
-	AdminServices as = new AdminServices();
+	AdminServices adminServices = new AdminServices();
 	public void authValidation(String username, String password) {//  throws ClassNotFoundException, SQLException {
 		//System.out.println(username + "  "+password );//debugging
 		AdminServices as = new AdminServices();
@@ -25,15 +25,24 @@ public class AdminController {
 		lo.logoutService();
 	}*/
 	public void enrollLP() {		
-		as.enrollService();
+		adminServices.enrollService();
 	}
 	public void profileView() {
-		as.profileViewServices();
+		adminServices.profileViewServices();
+	}
+	public void updateMyProfile() {
+		adminServices.profileUpdate();
 	}
 	public void viewMentor() {
-		as.viewMentors();
+		adminServices.viewMentors();
 	}
 	public void viewBatchDetails() throws ClassNotFoundException, SQLException {
-		as.viewBatches();
+		adminServices.viewBatches();
+	}
+	public void viewLP() {
+		adminServices.viewLPs();
+	}
+	public void trainingVenues() {
+		adminServices.trainingVenues();
 	}
 }

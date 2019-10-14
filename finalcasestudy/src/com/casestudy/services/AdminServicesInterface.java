@@ -10,4 +10,6 @@ public interface AdminServicesInterface {
 	public void viewMentors();
 	public void viewBatches();
 	public void profileUpdate();
+	public void viewLPs();
+	public void trainingVenues();
 }

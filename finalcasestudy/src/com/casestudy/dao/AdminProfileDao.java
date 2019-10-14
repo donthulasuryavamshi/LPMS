@@ -3,18 +3,24 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import org.apache.log4j.Logger;
+
 import com.casestudy.model.LPRegisterModel;
 import com.casestudy.services.AdminServicesInterface;
-import com.sun.istack.internal.logging.Logger;
+
 import com.virtusa.dbconnection.DataBaseConnector;
 
 public class AdminProfileDao implements AdminProfile {
 	public AdminServicesInterface asi;
+	public Logger log = Logger.getLogger(AdminLoginAuthDao.class.getName());
+	@Override
 	public void viewMyProfile() {
+
 		try {
 		Connection con = DataBaseConnector.initilizConnection();
 		PreparedStatement ps = con.prepareStatement("select * from admindetails");
 		ResultSet rs = ps.executeQuery();
+		log.info(rs.getString(2)+rs.getString(3)+ "  has viwes the admin details");
 		System.out.println("-----------------------------------------------------------------------------------------------------");
 		System.out.println("| MY ID  |  FIRST NAME  |  LAST NAME  |  DATE OF BIRTH  |          EMAIL ID         |  DESIGNATION  |");
 		while(rs.next()) {

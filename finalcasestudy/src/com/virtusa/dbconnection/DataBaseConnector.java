@@ -12,7 +12,7 @@ public class DataBaseConnector {
 	private static Connection con =null; 
 	static Logger log= Logger.getLogger(DataBaseConnector.class.getName());
 	public static Connection initilizConnection() throws ClassNotFoundException, SQLException {
-		log.info("in the connection connector");
+		log.info("database connection connector is used");
 		Class.forName(dbmodel.getDriver());
 		con = DriverManager.getConnection(dbmodel.getUrl(),dbmodel.getUsername(),dbmodel.getPassword());
 		return con;
