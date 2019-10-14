@@ -1,24 +1,27 @@
 package com.casestudy.dao;
-
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
+import com.casestudy.model.LPRegisterModel;
+import com.casestudy.services.AdminServicesInterface;
+import com.sun.istack.internal.logging.Logger;
 import com.virtusa.dbconnection.DataBaseConnector;
 
-public class AdminProfileDao {
+public class AdminProfileDao implements AdminProfile {
+	public AdminServicesInterface asi;
 	public void viewMyProfile() {
 		try {
 		Connection con = DataBaseConnector.initilizConnection();
-		PreparedStatement ps = con.prepareStatement("select * from admin");
+		PreparedStatement ps = con.prepareStatement("select * from admindetails");
 		ResultSet rs = ps.executeQuery();
 		System.out.println("-----------------------------------------------------------------------------------------------------");
 		System.out.println("| MY ID  |  FIRST NAME  |  LAST NAME  |  DATE OF BIRTH  |          EMAIL ID         |  DESIGNATION  |");
 		while(rs.next()) {
-			System.out.println(" | "+rs.getString(0)+" | "+rs.getString(1)+" | "+rs.getString(3)+" | "+rs.getDate(4)+" | "+rs.getString(5)+" | "+rs.getString(6));
+			System.out.println("");
+			System.out.println(" | "+rs.getString(1)+" | "+rs.getString(2)+" | "+rs.getString(3)+" | "+rs.getDate(4)+" | "+rs.getString(5)+" | "+rs.getString(6));
 		}
+				
 		}catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

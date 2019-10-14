@@ -20,11 +20,13 @@ import java.util.StringTokenizer;
 
 import com.casestudy.controller.LPEnrollmentController;
 import com.casestudy.model.LPRegisterModel;
+import com.virtusa.convertor.DateConvertor;
 
 public class LPEnrollmentView {
 
 	public void menu() {
-		try(Scanner sc = new Scanner(System.in);){
+		try{
+			Scanner sc = new Scanner(System.in);
 			System.out.println("=============Registering onbording employee details===========");
 			System.out.print("   |  Employee ID:              |");
 				String LP_ID = sc.next();
@@ -34,15 +36,16 @@ public class LPEnrollmentView {
 				String Last_Name = sc.next();
 			System.out.print("\n |  Date of Birth:(DD/MM/YYYY)|");
 				String DOB = sc.next();
-				StringTokenizer tokens = new StringTokenizer(DOB,"/");
+				/*StringTokenizer tokens = new StringTokenizer(DOB,"/");
 				List<String> list = new ArrayList<>();
 				while(tokens.hasMoreTokens()) {
-					list.add(tokens.nextToken());
+			list.add(tokens.nextToken());
 				}
 				int day=Integer.parseInt(list.get(0));
 				int month = Integer.parseInt(list.get(1));
 				int year = Integer.parseInt(list.get(2));
-				LocalDate dob = LocalDate.of(year, month-1, day);
+				LocalDate dob = LocalDate.of(year, month-1, day);*/
+				LocalDate dob = DateConvertor.dateFormat(DOB);
 			System.out.print("\n |  Employee Contact:         |");
 			int Phone_number = 0;
 				if(sc.hasNextInt())

@@ -7,8 +7,8 @@ import java.sql.Statement;
 
 import com.virtusa.dbconnection.DataBaseConnector;
 
-public class viewBatchesDao {
-	public void viewBatchesDetails(){
+public class viewBatchesDao implements ViewBatch{
+	public void viewBatchesDetails() {
 		try {
 		Connection con = DataBaseConnector.initilizConnection();
 		Statement stmt = con.createStatement();

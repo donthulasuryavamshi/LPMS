@@ -10,12 +10,12 @@ import java.time.LocalDate;
 import com.casestudy.model.LPRegisterModel;
 import com.virtusa.dbconnection.DataBaseConnector;
 
-public class LPRegisterDao {
+public class LPRegisterDao implements LpRegister {
 
 	public void lpDetailsFilling(LPRegisterModel lprm) {
 		try {
 		Connection con = DataBaseConnector.initilizConnection();
-		PreparedStatement ps = con.prepareStatement("insert into lp (lp_id, first_name, last_name, dob, phone_number, email, role ) values (?,?,?,?,?,?,?) ");
+		PreparedStatement ps = con.prepareStatement("insert into lpdetails (lp_id, first_name, last_name, dob, phone_number, email, designation ) values (?,?,?,?,?,?,?) ");
 		ps.setString(1, lprm.getLP_ID());
 		ps.setString(2, lprm.getFirst_Name());
 		ps.setString(3, lprm.getLast_Name());

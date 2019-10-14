@@ -9,7 +9,7 @@ import com.casestudy.dao.MentorViewDao;
 import com.casestudy.dao.viewBatchesDao;
 import com.casestudy.model.LPRegisterModel;
 import com.casestudy.view.LPEnrollmentView;
-public class AdminServices {
+public class AdminServices implements AdminServicesInterface {
 	public AdminServices as;
 	public void  adminAuth(String username, String password) { 
 	//public void  adminAuth(String username, String password) { //  throws ClassNotFoundException, SQLException {
@@ -59,8 +59,17 @@ public class AdminServices {
 		MentorViewDao mv = new MentorViewDao();
 		mv.viewMentorsListDao();
 	}
-	public void viewBatches() throws ClassNotFoundException, SQLException {
-		viewBatchesDao vbd = new viewBatchesDao();
-		vbd.viewBatchesDetails();
+	public void viewBatches() {
+		try{
+			viewBatchesDao vbd = new viewBatchesDao();
+			vbd.viewBatchesDetails();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	@Override
+	public void profileUpdate() {
+		// TODO Auto-generated method stub
+		
 	}
 }

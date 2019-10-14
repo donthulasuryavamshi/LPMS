@@ -2,6 +2,8 @@ package com.casestudy.view;
 import java.util.Scanner;
 
 import com.casestudy.controller.FrontController;
+import com.casestudy.dao.AdminProfileDao;
+import com.sun.istack.internal.logging.Logger;
 public class MainLoginForm {
 	public static void main(String[] args) {
 		menu();
