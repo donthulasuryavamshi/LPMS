@@ -1,0 +1,237 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="index.css">
+<style>
+body{
+background-color:#f2f2f2;
+border-left: 15px solid gray;
+border-right: 15px solid gray;
+border-top: 15px solid gray;
+border-radius:30px;
+position:relative;
+display:block;
+}
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+    width:99%;
+}
+input[type=text],input[type=select],input[type=email],textarea {
+    border: 2px solid brown;
+    border-radius: 4px;
+}
+input[type=submit]{
+ border: 2px solid brown;
+    border-radius: 4px;
+}
+}
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f1f1f1;
+    text-align: center;
+    padding: 10px 12px;
+    text-decoration: none;
+    font-size: 20px;
+}
+.footer {
+    position:realtive;
+    left:0;
+    bottom: 0;
+    width:100%;
+    background-color:none;
+    color:green;
+    text-align: center;
+    height: 100px;
+}
+
+/* Add an active class to highlight the current page */
+.active {
+    background-color:gray;
+    color: white;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+    display: none;
+}
+
+/* Dropdown container - needed to position the dropdown content */
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+/* Style the dropdown button to fit inside the topnav */
+.dropdown .dropbtn {
+    font-size: 17px; 
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Style the links inside the dropdown */
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+/* Add a dark background on topnav links and the dropdown button on hover */
+.topnav a:hover, .dropdown:hover .dropbtn {
+    background-color: #555;
+    color: white;
+}
+
+/* Add a grey background to dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Show the dropdown menu when the user moves the mouse over the dropdown button */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child), .dropdown .dropbtn {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive .dropdown {float:none;}
+  .topnav.responsive .dropdown-content {position: relative;}
+  .topnav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+img{
+float:left;
+}
+h1,td{
+color:black;
+}
+</style>
+<script type="text/javascript" language="javascript">
+var xmlHttp;
+function showMand(str)
+{
+	if(typeof XMLHttpRequest !=="undefined"){
+		xmlHttp=new XMLHttpRequest();
+	}
+	else if(window.ActiveXObject){
+		xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	if(xmlHttp===null){
+		alert("Browser doesnt support XMLHTTP request");
+		return;
+		}
+	var url="Registerlps.jsp";
+	url +="?count=" +str;
+	xmlHttp.onreadystatechange =statechange;
+	xmlHttp.open("GET",url,true);
+	xmlHttp.send(null);
+	}
+	function statechange(){
+		if(xmlHttp.readyState===4 ||xmlHttp.readyState==="complete"){
+			document.getElementById("mand").innerHTML=xmlHttp.responseText;
+		}
+	}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Registration form</title>
+</head>
+<body>
+<center><font size="5" color="black"><i><b>SYSTEM</i></b></font></center>
+
+<div class="topnav" id="myTopnav">
+<img src="logo1-2.jpg" class="img-circle" alt="symbol" height="70"></img></a>
+  <a href="loreum.html" class="active">Home</a>
+  <a href="#news">About</a>
+  <div class="dropdown">
+  </div>
+  </div>
+<center>
+<h1></h1>
+<h1>FORM FOR APPLYING REGISTRATION</h1>
+<form action="LPRegistration" method="POST">
+  <table border=1>
+  	<tr>
+		<td><b>Employee Id:</b></td>
+		<td><input type="text" name="sid" required></td>
+	</tr>
+	<tr>
+		<td><b>Employee name:</b></td>
+		<td><input type="text" name="sname" required></td>
+	</tr>
+	<tr>
+		<td><b>Designation:</b></td>
+		<td><select id="designation" name="dsgn" required="required" onchange="showMand(this.value)">
+		<option value="null">Select designation</option>
+		<option value="Assosiate Engineering technology">Assosiate Engineering technology</option>
+		<option value="netwroking">netwroking</option>
+		<option value="devops">devops</option>
+		<option value="uml">uml</option>
+		</select></td>
+	</tr>
+	<tr>
+		<td><b>Employee contact:</b></td>
+		<td><input type="text" name="scontact" required></td>
+	</tr>
+	<tr>
+		<td><b>Employee Email:</b></td>
+		<td><input type="text" name="semail" required></td>
+	</tr>
+	
+	<tr>
+		<td><b>Address:</b></td>
+		<td><textarea name="addr" rows="3" cols="20" style="overflow:hidden"></textarea></td>
+	</tr>
+	
+</table><br><br>
+<input type="submit" name="apply" value="Apply for Registration" color="green">
+<input type="Reset" value="Clear" color="red">
+</form>
+</center>
+
+</body>
+</html>
